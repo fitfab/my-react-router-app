@@ -6,11 +6,10 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div>
-      <h1>Welcome to React Router 7</h1>
-      <p>
-        This is a simple example of a React Router 7 app. It demonstrates how to use the new hooks API to create a
-        simple app with routing.
+    <div className="m-30 max-w-140">
+      <p className="text-xl font-light">
+        Front-End Web Developer with a flair for design — committed to creating websites that meet design and technical
+        requirements — including SEO, Usability and accessibility based on web standards guidelines.
       </p>
     </div>
   );
