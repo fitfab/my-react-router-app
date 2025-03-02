@@ -1,16 +1,17 @@
 import { Carousel } from "~/components/carousel"
-import { supabase } from "~/supabase-client"
+import { supabase } from "~/db/supabase-client"
 import type { Route } from "./+types/home"
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "React Router7" },
+    { title: "Miguel Julio Developer" },
     { name: "description", content: "Welcome to React Router 7" },
   ]
 }
 
 export async function loader({ request }: Route.LoaderArgs) {
   const { data } = await supabase.from("members").select("*")
+  console.log(data)
   return data
 }
 
@@ -123,6 +124,7 @@ export default function Home({
       height: "320px",
     },
   ]
+  console.log(loaderData)
   return (
     <div className="">
       <p className="text-xl font-light text-decorator m-30 max-w-140">
@@ -133,9 +135,6 @@ export default function Home({
       <h1>Welcome to My Route with Props!</h1>
       <p>Loader Data: {JSON.stringify(loaderData, null, 2)}</p>
 
-      <p>Action Data: {JSON.stringify(actionData)}</p>
-      <p>Route Parameters: {JSON.stringify(params)}</p>
-      <p>Matched Routes: {JSON.stringify(matches)}</p>
       <Carousel width="84%" height="432px">
         {data.map((card, index) => (
           <div
