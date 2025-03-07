@@ -1,8 +1,14 @@
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  isRouteErrorResponse,
+  Links,
+  Meta,
+  Scripts,
+  ScrollRestoration,
+} from "react-router"
 
-import type { Route } from "./+types/root";
-import stylesheet from "./app.css?url";
-import AppLayout from "./app-layout";
+import type { Route } from "./+types/root"
+import AppLayout from "./app-layout"
+import stylesheet from "./app.css?url"
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -21,7 +27,7 @@ export const links: Route.LinksFunction = () => [
     href: "/favicon.svg",
     type: "image/svg+xml",
   },
-];
+]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -38,24 +44,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
-  return <AppLayout />;
+  return <AppLayout />
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
-  let stack: string | undefined;
+  let message = "Oops!"
+  let details = "An unexpected error occurred."
+  let stack: string | undefined
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details = error.status === 404 ? "The requested page could not be found." : error.statusText || details;
+    message = error.status === 404 ? "404" : "Error"
+    details =
+      error.status === 404
+        ? "The requested page could not be found."
+        : error.statusText || details
   } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
+    details = error.message
+    stack = error.stack
   }
 
   return (
@@ -68,5 +77,5 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
-  );
+  )
 }

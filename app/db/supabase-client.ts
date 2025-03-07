@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js"
 import { drizzle } from "drizzle-orm/postgres-js"
 import postgres from "postgres"
-
+import * as schema from "./schema"
 /**
  * Supabase client using supabase-js
  */
@@ -16,4 +16,4 @@ const connectionString = import.meta.env.VITE_SUPABASE_CONN_STRING
 
 // Disable prefetch as it is not supported for "Transaction" pool mode
 export const client = postgres(connectionString, { prepare: false })
-export const db = drizzle(client)
+export const db = drizzle(client, { schema, logger: true })

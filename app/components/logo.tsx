@@ -1,9 +1,14 @@
-import React from "react";
+import React from "react"
 
 interface SvgIconProps extends React.SVGProps<SVGSVGElement> {}
 
 const Logo: React.FC<SvgIconProps> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="128" height="116" fill="none" viewBox="0 0 128 116" {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 128 116"
+    {...props}
+  >
     <path
       fill="#F51717"
       d="M93.375.039v77.684h-24.25V38.99l-11.96 38.733H36.319L24.358 38.99v38.733H0V.039h29.845L46.962 46.67 63.64.039z"
@@ -17,6 +22,6 @@ const Logo: React.FC<SvgIconProps> = (props) => (
       d="m55.287 84.694-5.358 15.938h-6.46L38.11 84.694h5.313l3.286 10.963 3.264-10.963zM26.088 88.678v1.959h4.952v3.759h-4.952v2.251h5.627v3.985H21.09V84.694h10.625v3.984zM6.64 84.694q2.5 0 4.368 1.013 1.89 1.013 2.904 2.814 1.013 1.8 1.013 4.097 0 2.273-1.013 4.097-1.014 1.823-2.904 2.881-1.869 1.035-4.367 1.036H0V84.694zm-.45 11.48q1.689 0 2.68-.923.99-.923.99-2.633t-.99-2.634-2.68-.923H4.997v7.113z"
     ></path>
   </svg>
-);
+)
 
-export default Logo;
+export default Logo

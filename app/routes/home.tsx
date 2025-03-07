@@ -1,5 +1,6 @@
 import { Carousel } from "~/components/carousel"
-import { supabase } from "~/db/supabase-client"
+import { addressTable } from "~/db/schema"
+import { db } from "~/db/supabase-client"
 import type { Route } from "./+types/home"
 
 export function meta({}: Route.MetaArgs) {
@@ -10,9 +11,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export async function loader({ request }: Route.LoaderArgs) {
-  const { data } = await supabase.from("members").select("*")
-  console.log(data)
-  return data
+  const result = await db.select().from(addressTable)
+  console.log(result)
+  return {}
 }
 
 export async function action({ request }: Route.LoaderArgs) {
